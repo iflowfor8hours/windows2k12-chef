@@ -1,0 +1,20 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+# Uncomment the following verifier to leverage Inspec instead of Busser (the
+# default verifier)
+# verifier:
+#   name: inspec
+
+platforms:
+  - name: ferventcoder/win2008r2-x64-nocm
+
+suites:
+  - name: default
+    run_list:
+      - recipe[settings::default]
+    attributes:
