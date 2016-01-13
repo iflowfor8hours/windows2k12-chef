@@ -1,3 +1,3 @@
 @powershell -NoProfile -ExecutionPolicy Bypass -File "%systemdrive%\vagrant\shell\choco.ps1"
 
-choco install -y chef-client
+%systemdrive%\ProgramData\Chocolatey\bin\choco.exe install -y chef-client
