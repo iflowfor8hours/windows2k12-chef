@@ -3,11 +3,9 @@
 
 Vagrant.configure(2) do |config|
   config.vm.guest = :windows
-  # config.vm.box = "ferventcoder/win2008r2-x64-nocm"
-#  config.vm.box = "ferventcoder/win2008r2-x64-nocm"
   config.vm.box = "kensykora/windows_2012_r2_standard"
   config.vm.network "private_network", ip: "192.168.50.4"
-
+  config.vm.network "forwarded_port", guest: 80, host: 8080
 
   config.ssh.insert_key = false
 
@@ -17,5 +15,8 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision :shell, path: "shell/main.cmd"
+  config.vm.provision "chef_solo" do |chef|
+    chef.add_recipe "learn_chef_iis"
+  end
 
 end
