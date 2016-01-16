@@ -3,9 +3,7 @@
 # Recipe:: default
 #
 # Copyright (C) 2014
-#
-#
-#
+
 powershell_script 'Install IIS' do
   code 'Add-WindowsFeature Web-Server'
   guard_interpreter :powershell_script
